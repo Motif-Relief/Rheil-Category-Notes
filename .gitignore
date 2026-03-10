@@ -1,0 +1,10 @@
+incontext.pdf
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+.vscode/*
+!.vscode/settings.json
