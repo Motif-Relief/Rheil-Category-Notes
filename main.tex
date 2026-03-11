@@ -137,15 +137,15 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
 
 \begin{pf}{(i)}
     \item[] Assume \(\exists g,h:y\rightrightarrows x\) so that \(gf=1_x\) and \(fh=1_y\).  Then
-    \[
+    \begin{equation}\tag{$\star$}\label{eq:star}
         g\jeq{morphism dfn.} g1_y\jeq{asumptions }g(fh)\jeq{associativity }(gf)h\jeq{assumptions}1_xh\jeq{identity}h
-    \]
+    \end{equation}
 \end{pf}
 
 \begin{pf}{(ii)}
     \item[] Let \(g,h:y\rightrightarrows x\) be inverse isomorphisms of \(f:x\to y\)
     \item[] But this implies \(gf=1_x\) and \(fh=1_y\)
-    \item[] Hence by the previous arguement \(g=h\)
+    \item[] Hence by the argument presented in \eqref{eq:star} we obtain \(g=h\).
 \end{pf}
 
 \begin{prm}[1.1.ii] Let \(\mathsf{C}\) be a category.  Show that the collection of isomorphisms in \(\mathsf{C}\) defines a subcategory, the \textbf{maximal groupoid} inside \(\mathsf{C}\)
@@ -156,19 +156,19 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
     \item[] Consider the following data \(\mathsf{D}\) (we haven't yet confirmed it is a category): 
     \begin{enumerate}
     \item[] \(\mathrm{Obj}\left(\mathsf{D}\right):=\mathrm{Obj}\left(\mathsf{C}\right)\)
-    \item[] \(x,y\in\mathrm{Obj}\left(\mathsf{D}\right)\bm{\implies}\mathsf{D}\left(x,y\right):=\{f \in \mathsf{C}\left(x,y\right) \mid f \text{ is an isomorphism}\}\)
+    \item[] \(\forall x,y\in\mathrm{Obj}\left(\mathsf{D}\right)\bm{\implies}\mathsf{D}\left(x,y\right):=\{f \in \mathsf{C}\left(x,y\right) \mid f \text{ is an isomorphism}\}\)
     \end{enumerate}
     
     \item[] It suffices to verify the $3$ subcategory conditions for \(\mathsf{D}\):
     \begin{enumerate}
-    \item[(i)] All objects are still present so trivially the domains and codomains of all the \textit{iso}morphisms are still present
-    \item[(ii)] Since identities are always automorphisms they remain present in \(\mathsf{D}\)
-    \item[(iii)] The composite of compossible pairs of isomorphisms are themselves isomorphisms \((f^{-1}g^{-1})(gf)=1_X\), hence are contained in \(\mathsf{D}\)
+    \item[(i)] No object has been removed, so domains and codomains of all \textit{iso}morphisms are still present
+    \item[(ii)] Identities are isomorphisms, so remain in our definition of \(\mathsf{D}\)
+    \item[(iii)] The composite of composible pairs of isomorphisms are isomorphisms that remain in \(\mathsf{D}\):\[(f^{-1}g^{-1})(gf)=1_X\]    
     \end{enumerate}
 \end{pf}
 
 \begin{prm}[1.1.iii.(i)]
-    For any category \(\mathsf{C}\) and any object \(c\in \mathsf{C}\) there is a category \(c/ \mathsf{C}\) whose objects are morphisms \(f: c\to x\) with domain \(c\) and in which a morphism from \(f:c \to x\) to \(g:c \to y\) is a map \(h:x\to y\) between the codomains so that the triangle
+    For any category \(\mathsf{C}\) and any object \(c\in \mathsf{C}\) show that there is a category \(c/ \mathsf{C}\) whose objects are morphisms \(f: c\to x\) with domain \(c\) and in which a morphism from \(f:c \to x\) to \(g:c \to y\) is a map \(h:x\to y\) between the codomains so that the triangle
         \[
         \begin{tikzcd}[column sep=small]
                         & c \ar[dl,"f"'] \ar[dr,"g"]     & \\
@@ -183,7 +183,9 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
     \item[] Consider the following data \(c/\mathsf{C}\) (we haven't yet confirmed it is a category):
     \begin{enumerate}
         \item[] \(\mathrm{Obj}\left(c/\mathsf{C}\right):= \left\{f : c \to x \mid x \in \mathrm{Obj}(\mathsf{C})\right\}\) 
-        \item[] \(f:c\to x,g:c\to y\in\mathrm{Obj}\left(c/\mathsf{C}\right)\bm{\implies}(\Hom_{c/\mathsf{C}})\left(f,g\right):=\{h : x \to y \in \mathsf{C}\mid g = h\circ f\}\)
+        \item[] 
+        \(\forall \substack{f:c\to x\\g:c\to y}\in\mathrm{Obj}\left(c/\mathsf{C}\right)\bm{\implies}\Hom_{c/\mathsf{C}}\left(f,g\right):=\{h : x \to y \in \mathsf{C}\mid g = h\circ f\}\)
+        \item[] it suffices to prove that \(\mathrm{Mor}\left(c/\mathsf{C}\right)\) is closed under composition and contains identities, but this is true since:
         % \item[] \(\mathrm{Mor}\left(\mathsf{D}\right):= \{(f)\in \mathrm{Mor}\left(\mathsf{C}\right)\mid \mathrm{dom}\left(f\right)\in \mathrm{Obj}\left(\mathsf{D}\right) \land \mathrm{cod}\left(f\right)\in \mathrm{Obj}\left(\mathsf{D}\right) \}\)
     
     \end{enumerate}
@@ -194,7 +196,7 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
 
 
 \begin{prm}[1.1.iii.(ii)]
-    For any category \(\mathsf{C}\) and any object \(c\in \mathsf{C}\) there is a category \(\mathsf{C}/c\) whose objects are morphisms \(f: x\to c\) with domain \(c\) and in which a morphism from \(f:x \to c\) to \(g:y \to c\) is a map \(h:x\to y\) between the domains so that \(f=gh\).
+    For any category \(\mathsf{C}\) and any object \(c\in \mathsf{C}\) show that there is a category \(\mathsf{C}/c\) whose objects are morphisms \(f: x\to c\) with domain \(c\) and in which a morphism from \(f:x \to c\) to \(g:y \to c\) is a map \(h:x\to y\) between the domains so that \(f=gh\).
 \end{prm}
 
 
