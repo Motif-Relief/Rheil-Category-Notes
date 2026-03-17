@@ -2,8 +2,10 @@
 \usepackage[letterpaper, margin=1in]{geometry}
 \usepackage{amsmath,amsthm,amssymb,mathtools,bm}
 \usepackage{tikz-cd}
-\usepackage{graphicx}
 \usepackage{xcolor}
+
+% \usepackage{graphicx}
+% \graphicspath{ {./images/} }
 
 \newtheoremstyle{spacious}% <name>
   {8pt}      % Space above
@@ -16,15 +18,17 @@
   {}         % Head spec
 
 \theoremstyle{spacious}
+
+\newtheorem{con}{Conjecture}
+\newtheorem{cor}{Corollary}
 \newtheorem*{dfn}{Dfn}
-\newtheorem*{prp}{Proposition}
-\newtheorem*{thm}{Theorem}
-\newtheorem*{rmk}{Remark}
 \newtheorem*{lem}{Lemma}
-\newtheorem*{cor}{Corollary}
-\newtheorem*{stp}{Step Result}
+\newtheorem*{prp}{Proposition}
 \newtheorem*{prm}{Exercise}
-\graphicspath{ {./images/} }
+\newtheorem*{rmk}{Remark}
+\newtheorem*{thm}{Theorem}
+
+
 
 \newcommand{\vl}{\vartriangleleft}
 \newcommand{\vr}{\vartriangleright}
@@ -58,11 +62,7 @@
 \renewcommand{\labelenumi}{(\textit{\roman{enumi}})}
 \renewcommand{\theenumi}{\roman{enumi}} % what \ref prints
 
-\usepackage{subfiles} % Best loaded last in the preamble
-
 \begin{document}
-
-% \section*{0 tikzcd Notes}
 
 \section*{1.1 Abstract and concrete categories}
 
@@ -147,6 +147,7 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
     \item[] But this implies \(gf=1_x\) and \(fh=1_y\)
     \item[] Hence by the argument presented in \eqref{eq:star} we obtain \(g=h\).
 \end{pf}
+
 
 \begin{prm}[1.1.ii] Let \(\mathsf{C}\) be a category.  Show that the collection of isomorphisms in \(\mathsf{C}\) defines a subcategory, the \textbf{maximal groupoid} inside \(\mathsf{C}\)
 \end{prm}
@@ -321,7 +322,7 @@ f_*g_*(k)&=f_*g(k) \phantom{()}\quad \forall g \in \mathsf{C}\left(y,x\right)\qu
     \hline
     &&\\
     epi     & \(\forall h,k:y \rightrightarrows z \quad hf=kf \leadsto h=k \) & \(\twoheadrightarrow\)\\
-    % \(\forall z \quad \forall g:z \to y \quad \exists h:z \to x \st f\circ h =g \) \\
+    % \(\forall z \quad \forall g:z \to y \quad \exists h:z \to kx \st f\circ h =g \) \\
     &&\\
 \hline
 \end{tabular}
