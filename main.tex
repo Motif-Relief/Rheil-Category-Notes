@@ -13,7 +13,7 @@
 \newtheoremstyle{spacious}% <name>
   {16pt}      % Space above
   {8pt}     % Space below  <-- increase this for more after-spacing
-  {\color{solarized-base3}\normalfont} % Body font
+  {\color{solarized-base03}\normalfont} % Body font
   {}         % Indent amount
   {\color{solarized-base01}\bfseries}% Head font
   {\color{solarized-base01}.}        % Punctuation after head
@@ -80,7 +80,9 @@
 \newcommand{\mono}{\rightarrowtail}
 \newcommand{\op}{\mathrm{op}}
 
+% Morphisms - yellow
 \newcommand{\Hom}[3]{\color{solarized-yellow}{{\mathrm{Hom}}_{\color{solarized-green}#1}\left({\color{solarized-blue}#2},{\color{solarized-blue}#3}\right)}}
+\newcommand{\1}[1]{{\color{solarized-yellow}{\mathrm{1}}_{\color{solarized-green}#1}}}
 
 % enumerate with roman numerals
 \renewcommand{\labelenumi}{(\textit{\roman{enumi}})}
@@ -89,20 +91,37 @@
 \begin{document}
 
 \solarizedPalette
-\color{solarized-base01}
-\pagecolor{solarized-base03}
+\color{solarized-base02}
+\pagecolor{solarized-base3}
 \section*{1.1 Abstract and concrete categories}
+
+\begin{rmk}[Color Key]\phantom{a}
+    \begin{itemize}
+        \item \textcolor{solarized-magenta}{\textbf{Magenta}}: emphasis, definitions, and category names
+        \item \textcolor{solarized-green}{\textbf{Green}}: categories
+        \item \textcolor{solarized-blue}{\textbf{Blue}}: objects
+        \item \textcolor{solarized-yellow}{\textbf{Yellow}}: morphisms
+    \end{itemize}
+\end{rmk}
 
 \begin{dfn}
 A \bf{category} $\c{C}$ consists of
+\begin{enumerate}
+\item a class of \color{solarized-blue}{\textbf{objects}}
+\[
+    \Ob{C}
+\]
+\item a function assigning to each ordered pair of objects a class of \color{solarized-yellow}{\textbf{morphisms}}:
+\end{enumerate}
+
 
 \[\begin{aligned}
-    \Ob{C}&\:\left\{\text{a class of objects}\right\}\\
     \forall \A,\B\in \Ob{C}\implies \exists\Hom{C}{A}{B}&\:\left\{\text{a class of morphisms from $A$ to $B$}\right\}\\
-    \forall \A\in \Ob{C}\implies \exists\Hom{C}{A}{A}&\:\left\{\text{a}\right\}\\
+    \forall \A,\B,\C\in \Ob{C}\implies \exists\Hom{C}{A}{B}&\:\left\{\text{a class of morphisms from $A$ to $B$}\right\}\\ 
+    \forall \A\in \Ob{C}\implies \exists \1{A} \in \Hom{C}{A}{A}&\:\left\{\text{a}\right\}\\
 \end{aligned}\]
 
-\begin{enumerate}
+\begin{enumerate} 
 \item ,
 \item identity morphisms
       $\mathrm{id}_A\in\mathrm{Hom}(A,A)$,
