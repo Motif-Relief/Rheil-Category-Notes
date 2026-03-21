@@ -159,7 +159,7 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
     \item[] \(\forall x,y\in\mathrm{Obj}\left(\mathsf{D}\right)\bm{\implies}\mathsf{D}\left(x,y\right):=\{f \in \mathsf{C}\left(x,y\right) \mid f \text{ is an isomorphism}\}\)
     \end{enumerate}
     
-    \item[] It suffices to verify the $3$ subcategory conditions for \(\mathsf{D}\):
+    \item[] It suffices to verify the $3$ subcategory conditions for \(\mathsf{D}\).  Indeed:
     \begin{enumerate}
     \item[(i)] No object has been removed, so domains and codomains of all \textit{iso}morphisms are still present
     \item[(ii)] Identities are isomorphisms, so remain in our definition of \(\mathsf{D}\)
@@ -182,19 +182,24 @@ An \textbf{automorphism} is an isomorphism that is an endomorphism
     \item[] Let \(\mathsf{C}\) be a category with \(c\in\mathrm{Obj}\left(\mathsf{C}\right)\)
     \item[] Consider the following data \(c/\mathsf{C}\) (we haven't yet confirmed it is a category):
     \begin{enumerate}
-        \item[] \(\mathrm{Obj}\left(c/\mathsf{C}\right):= \left\{f : c \to x \mid x \in \mathrm{Obj}(\mathsf{C})\right\}\) 
-        \item[] 
-        \(\forall \substack{f:c\to x\\g:c\to y}\in\mathrm{Obj}\left(c/\mathsf{C}\right)\bm{\implies}\Hom_{c/\mathsf{C}}\left(f,g\right):=\{h : x \to y \in \mathsf{C}\mid g = h\circ f\}\)
-        \item[] it suffices to prove that \(\mathrm{Mor}\left(c/\mathsf{C}\right)\) is closed under composition and contains identities, but this is true since:
-        % \item[] \(\mathrm{Mor}\left(\mathsf{D}\right):= \{(f)\in \mathrm{Mor}\left(\mathsf{C}\right)\mid \mathrm{dom}\left(f\right)\in \mathrm{Obj}\left(\mathsf{D}\right) \land \mathrm{cod}\left(f\right)\in \mathrm{Obj}\left(\mathsf{D}\right) \}\)
-    
+        \item[$(\alpha)$] \(\mathrm{Obj}\left(c/\mathsf{C}\right):= \left\{f : c \to x \mid x \in \mathrm{Obj}(\mathsf{C})\right\}\) 
+        \item[$(\beta)$] 
+        \(\forall \substack{f:c\to x\\g:c\to y}\in\mathrm{Obj}\left(c/\mathsf{C}\right)\bm{\implies}\Hom_{c/\mathsf{C}}\left(f,g\right):=\{h : x \to y \in \Hom_{\mathsf{C}}\left(x,y\right)\mid g = h\circ f\}\)
+        \item[$(\gamma)$] \(\forall\substack{\psi:f\to g\\\phi:g\to k} \bm{\implies} \phi\circ\psi \:\phi\circ_{\mathsf{C}}\psi\)
     \end{enumerate}
-            \item[] left composition with \(1_f\) gives the identity of \(f\in \mathrm{Mor}\left(\mathsf{D}\right)\)
-        \item[] for all \(f,g\in\mathrm{Mor}\left(D\right)\) we can define \(fg\) as \(f\circ g \circ \)
-        \item[] transitivity must hold since it holds for \(\mathsf{C}\)
-\end{pf}
-
-
+    It suffices to prove that the morphisms \underline{contain their identities}, are \underline{closed under composition}, and are \underline{associative}.  Indeed:
+        \item (Identites) First notice that 
+        
+        From \((\beta)\), \(\substack{f:c\to x\\f:c\to x}\in\mathrm{Obj}\left(c/\mathsf{C}\right)\) gives\[\Hom_{c/\mathsf{C}}\left(f,f\right):=\{h : x \to x \in \Hom_{\mathsf{C}}\left(x,x\right)\mid f = h\circ f\}\]
+        But here, \(h\) is precisely the identity \(1_f\:1_x \in \Hom_\mathsf{C}(x,x)\).
+        \[\psi:f\to g \text{ and }\phi:g\to k \quad \text{for }f,g,h \in \mathrm{Obj}\left(c/\mathsf{C}\right)
+        \text{with }
+        \mathrm{cod}\left(f\right)=x\,,
+        \mathrm{cod}\left(g\right)=y\,,
+        \mathrm{cod}\left(k\right)=z\] 
+        Then by \((\beta)\) we know \(\substack{\psi\:h_1\in \Hom_C(x,y)\\\phi\:h_2\in\Hom_C(y,z)}\) so since \(\mathsf{C}\) is a category, we have \(\phi\circ\psi\:h_2\circ h_1 \in \Hom_C(x,z)\).
+        \item[] (Transitivity)
+        A similar argument to the above interpreting the morphisms of \(c/\mathsf{C}\) as morphisms of \(\mathsf{C}\) and using the fact that \(\mathsf{C}\) is a category gives transitivity.
 \begin{prm}[1.1.iii.(ii)]
     For any category \(\mathsf{C}\) and any object \(c\in \mathsf{C}\) show that there is a category \(\mathsf{C}/c\) whose objects are morphisms \(f: x\to c\) with domain \(c\) and in which a morphism from \(f:x \to c\) to \(g:y \to c\) is a map \(h:x\to y\) between the domains so that \(f=gh\).
 \end{prm}
